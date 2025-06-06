@@ -1,0 +1,46 @@
+	.data
+	.global arr_0
+arr_0:
+	.zero 262144
+	.text
+	.globl main
+main:
+main_entry:
+	li   t0, -16400
+	add  sp, sp, t0
+	li t0, 0
+	add t0, sp, t0
+	li t1, 0
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2//基地址
+	li t0, 16384
+	add t0, sp, t0
+	sw t1, 0(t0)//16384基地址
+	li t1, 16384
+	add t1, sp, t1
+	lw t1, 0(t1)//t1基地址
+	li t0, 1
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 0
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	li t0, 16388
+	add t0, sp, t0
+	sw t1, 0(t0)
+	li t1, 16392
+	add t1, sp, t1
+	lw t1, 0(t1)
+	li t0, 16388
+	add t0, sp, t0
+	lw t0, 0(t0)
+	sw t0, 0(t1)
+	li t0, 16392
+	add t0, sp, t0
+	lw a0, 0(t0)
+	li t0, 16400
+	add sp, sp, t0
+	ret

@@ -1,0 +1,735 @@
+	.data
+	.global n_0
+n_0:
+	.word 0
+	.text
+	.globl swap
+swap:
+swap_entry:
+	li   t0, -96
+	add  sp, sp, t0
+	mv t0, a0
+	sw t0, 0(sp)
+	mv t0, a1
+	sw t0, 4(sp)//i
+	mv t0, a2
+	sw t0, 8(sp)//j
+	lw t1, 4(sp)
+	sw t1, 16(sp)
+	lw t1, 0(sp)
+	sw t1, 20(sp)//ptr
+	li t0, 20
+	add t0, sp, t0
+	lw t1, 16(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 24(sp)
+	lw t1, 24(sp)
+	lw t1, 0(t1)
+	sw t1, 28(sp)
+	lw t0, 28(sp)
+	sw t0, 12(sp)
+	lw t1, 8(sp)
+	sw t1, 32(sp)
+	lw t1, 0(sp)
+	sw t1, 36(sp)
+	li t0, 36
+	add t0, sp, t0
+	lw t1, 32(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 40(sp)
+	lw t1, 40(sp)
+	lw t1, 0(t1)
+	sw t1, 44(sp)
+	lw t1, 4(sp)
+	sw t1, 48(sp)
+	lw t1, 0(sp)
+	sw t1, 52(sp)
+	li t0, 52
+	add t0, sp, t0
+	lw t1, 48(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 56(sp)
+	lw t0, 44(sp)
+	lw t1, 56(sp)
+	sw t0, 0(t1)
+	lw t1, 12(sp)
+	sw t1, 60(sp)
+	lw t1, 8(sp)
+	sw t1, 64(sp)
+	lw t1, 0(sp)
+	sw t1, 68(sp)
+	li t0, 68
+	add t0, sp, t0
+	lw t1, 64(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 72(sp)
+	lw t0, 60(sp)
+	lw t1, 72(sp)
+	sw t0, 0(t1)
+	li a0, 0
+	li t0, 96
+	add sp, sp, t0
+	ret
+	.globl heap_ajust
+heap_ajust:
+heap_ajust_entry:
+	li   t0, -224
+	add  sp, sp, t0
+	li   t0, 220
+	add  t0, sp, t0
+	sw ra, 0(t0)
+	mv t0, a0
+	sw t0, 0(sp)
+	mv t0, a1
+	sw t0, 4(sp)
+	mv t0, a2
+	sw t0, 8(sp)
+	lw t1, 4(sp)
+	sw t1, 16(sp)
+	lw t0, 16(sp)
+	sw t0, 12(sp)
+	lw t1, 12(sp)
+	sw t1, 24(sp)
+	lw t0, 24(sp)
+	li t1, 2
+	mul t2, t0, t1
+	sw t2, 28(sp)
+	lw t0, 28(sp)
+	li t1, 1
+	add t2, t0, t1
+	sw t2, 32(sp)
+	lw t0, 32(sp)
+	sw t0, 20(sp)
+	j heap_ajust_wentry_0
+heap_ajust_wentry_0:
+	lw t1, 20(sp)
+	sw t1, 36(sp)
+	lw t1, 8(sp)
+	sw t1, 40(sp)
+	lw t0, 40(sp)
+	li t1, 1
+	add t2, t0, t1
+	sw t2, 44(sp)
+	lw t0, 36(sp)
+	lw t1, 44(sp)
+	slt t2, t0, t1
+	sw t2, 48(sp)
+	lw t0, 48(sp)
+	bnez t0, heap_ajust_wbody_0
+	beqz t0, heap_ajust_wend_0
+heap_ajust_wbody_0:
+	lw t1, 20(sp)
+	sw t1, 52(sp)
+	lw t1, 8(sp)
+	sw t1, 56(sp)
+	lw t0, 52(sp)
+	lw t1, 56(sp)
+	slt t2, t0, t1
+	sw t2, 60(sp)
+	lw t0, 60(sp)
+	li t1, 0
+	xor t2, t0, t1
+	snez t2, t2
+	sw t2, 68(sp)
+	lw t0, 68(sp)
+	bnez t0, heap_ajust_andtrue_0_1
+	beqz t0, heap_ajust_andfalse_0_1
+heap_ajust_wend_0:
+	li a0, 0
+	li   t0, 220
+	add  t0, sp, t0
+	lw ra, 0(t0)
+	li t0, 224
+	add sp, sp, t0
+	ret
+heap_ajust_andtrue_0_1:
+	lw t1, 20(sp)
+	sw t1, 72(sp)
+	lw t1, 0(sp)
+	sw t1, 76(sp)
+	li t0, 76
+	add t0, sp, t0
+	lw t1, 72(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 80(sp)
+	lw t1, 80(sp)
+	lw t1, 0(t1)
+	sw t1, 84(sp)
+	lw t1, 20(sp)
+	sw t1, 88(sp)
+	lw t0, 88(sp)
+	li t1, 1
+	add t2, t0, t1
+	sw t2, 92(sp)
+	lw t1, 0(sp)
+	sw t1, 96(sp)
+	li t0, 96
+	add t0, sp, t0
+	lw t1, 92(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 100(sp)
+	lw t1, 100(sp)
+	lw t1, 0(t1)
+	sw t1, 104(sp)
+	lw t0, 84(sp)
+	lw t1, 104(sp)
+	slt t2, t0, t1
+	sw t2, 108(sp)
+	li t0, 0
+	lw t1, 108(sp)
+	xor t2, t0, t1
+	snez t2, t2
+	sw t2, 112(sp)
+	lw t0, 112(sp)
+	sw t0, 64(sp)
+	j heap_ajust_andend_0_1
+heap_ajust_andfalse_0_1:
+	li t0, 0
+	sw t0, 64(sp)
+	j heap_ajust_andend_0_1
+heap_ajust_andend_0_1:
+	lw t1, 64(sp)
+	sw t1, 116(sp)
+	lw t0, 116(sp)
+	bnez t0, heap_ajust_then_0
+	beqz t0, heap_ajust_end_0
+heap_ajust_then_0:
+	lw t1, 20(sp)
+	sw t1, 120(sp)
+	lw t0, 120(sp)
+	li t1, 1
+	add t2, t0, t1
+	sw t2, 124(sp)
+	lw t0, 124(sp)
+	sw t0, 20(sp)
+	j heap_ajust_end_0
+heap_ajust_end_0:
+	lw t1, 12(sp)
+	sw t1, 128(sp)
+	lw t1, 0(sp)
+	sw t1, 132(sp)
+	li t0, 132
+	add t0, sp, t0
+	lw t1, 128(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 136(sp)
+	lw t1, 136(sp)
+	lw t1, 0(t1)
+	sw t1, 140(sp)
+	lw t1, 20(sp)
+	sw t1, 144(sp)
+	lw t1, 0(sp)
+	sw t1, 148(sp)
+	li t0, 148
+	add t0, sp, t0
+	lw t1, 144(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 152(sp)
+	lw t1, 152(sp)
+	lw t1, 0(t1)
+	sw t1, 156(sp)
+	lw t0, 140(sp)
+	lw t1, 156(sp)
+	sgt t2, t0, t1
+	sw t2, 160(sp)
+	lw t0, 160(sp)
+	bnez t0, heap_ajust_then_1
+	beqz t0, heap_ajust_else_1
+heap_ajust_then_1:
+	li a0, 0
+	li   t0, 220
+	add  t0, sp, t0
+	lw ra, 0(t0)
+	li t0, 224
+	add sp, sp, t0
+	ret
+heap_ajust_else_1:
+	lw t1, 0(sp)
+	sw t1, 164(sp)
+	lw t1, 12(sp)
+	sw t1, 168(sp)
+	lw t1, 20(sp)
+	sw t1, 172(sp)
+	lw t0, 164(sp)
+	mv a0, t0
+	lw t0, 168(sp)
+	mv a1, t0
+	lw t0, 172(sp)
+	mv a2, t0
+	call swap
+	sw a0, 176(sp)
+	lw t0, 176(sp)
+	sw t0, 12(sp)
+	lw t1, 20(sp)
+	sw t1, 180(sp)
+	lw t0, 180(sp)
+	sw t0, 12(sp)
+	lw t1, 12(sp)
+	sw t1, 184(sp)
+	lw t0, 184(sp)
+	li t1, 2
+	mul t2, t0, t1
+	sw t2, 188(sp)
+	lw t0, 188(sp)
+	li t1, 1
+	add t2, t0, t1
+	sw t2, 192(sp)
+	lw t0, 192(sp)
+	sw t0, 20(sp)
+	j heap_ajust_end_1
+heap_ajust_end_1:
+	j heap_ajust_wentry_0
+	.globl heap_sort
+heap_sort:
+heap_sort_entry:
+	li   t0, -160
+	add  sp, sp, t0
+	li   t0, 156
+	add  t0, sp, t0
+	sw ra, 0(t0)
+	mv t0, a0
+	sw t0, 0(sp)
+	mv t0, a1
+	sw t0, 4(sp)
+	lw t1, 4(sp)
+	sw t1, 16(sp)
+	lw t0, 16(sp)
+	li t1, 2
+	div t2, t0, t1
+	sw t2, 20(sp)
+	lw t0, 20(sp)
+	li t1, 1
+	sub t2, t0, t1
+	sw t2, 24(sp)
+	lw t0, 24(sp)
+	sw t0, 8(sp)
+	j heap_sort_wentry_0
+heap_sort_wentry_0:
+	lw t1, 8(sp)
+	sw t1, 28(sp)
+	lw t0, 28(sp)
+	li t1, -1
+	sgt t2, t0, t1
+	sw t2, 32(sp)
+	lw t0, 32(sp)
+	bnez t0, heap_sort_wbody_0
+	beqz t0, heap_sort_wend_0
+heap_sort_wbody_0:
+	lw t1, 4(sp)
+	sw t1, 36(sp)
+	lw t0, 36(sp)
+	li t1, 1
+	sub t2, t0, t1
+	sw t2, 40(sp)
+	lw t0, 40(sp)
+	sw t0, 12(sp)
+	lw t1, 0(sp)
+	sw t1, 44(sp)
+	lw t1, 8(sp)
+	sw t1, 48(sp)
+	lw t1, 12(sp)
+	sw t1, 52(sp)
+	lw t0, 44(sp)
+	mv a0, t0
+	lw t0, 48(sp)
+	mv a1, t0
+	lw t0, 52(sp)
+	mv a2, t0
+	call heap_ajust
+	sw a0, 56(sp)
+	lw t0, 56(sp)
+	sw t0, 12(sp)
+	lw t1, 8(sp)
+	sw t1, 60(sp)
+	lw t0, 60(sp)
+	li t1, 1
+	sub t2, t0, t1
+	sw t2, 64(sp)
+	lw t0, 64(sp)
+	sw t0, 8(sp)
+	j heap_sort_wentry_0
+heap_sort_wend_0:
+	lw t1, 4(sp)
+	sw t1, 68(sp)
+	lw t0, 68(sp)
+	li t1, 1
+	sub t2, t0, t1
+	sw t2, 72(sp)
+	lw t0, 72(sp)
+	sw t0, 8(sp)
+	j heap_sort_wentry_1
+heap_sort_wentry_1:
+	lw t1, 8(sp)
+	sw t1, 76(sp)
+	lw t0, 76(sp)
+	li t1, 0
+	sgt t2, t0, t1
+	sw t2, 80(sp)
+	lw t0, 80(sp)
+	bnez t0, heap_sort_wbody_1
+	beqz t0, heap_sort_wend_1
+heap_sort_wbody_1:
+	li t0, 0
+	sw t0, 84(sp)
+	lw t1, 0(sp)
+	sw t1, 88(sp)
+	lw t1, 84(sp)
+	sw t1, 92(sp)
+	lw t1, 8(sp)
+	sw t1, 96(sp)
+	lw t0, 88(sp)
+	mv a0, t0
+	lw t0, 92(sp)
+	mv a1, t0
+	lw t0, 96(sp)
+	mv a2, t0
+	call swap
+	sw a0, 100(sp)
+	lw t0, 100(sp)
+	sw t0, 12(sp)
+	lw t1, 8(sp)
+	sw t1, 104(sp)
+	lw t0, 104(sp)
+	li t1, 1
+	sub t2, t0, t1
+	sw t2, 108(sp)
+	lw t0, 108(sp)
+	sw t0, 12(sp)
+	lw t1, 0(sp)
+	sw t1, 112(sp)
+	lw t1, 84(sp)
+	sw t1, 116(sp)
+	lw t1, 12(sp)
+	sw t1, 120(sp)
+	lw t0, 112(sp)
+	mv a0, t0
+	lw t0, 116(sp)
+	mv a1, t0
+	lw t0, 120(sp)
+	mv a2, t0
+	call heap_ajust
+	sw a0, 124(sp)
+	lw t0, 124(sp)
+	sw t0, 12(sp)
+	lw t1, 8(sp)
+	sw t1, 128(sp)
+	lw t0, 128(sp)
+	li t1, 1
+	sub t2, t0, t1
+	sw t2, 132(sp)
+	lw t0, 132(sp)
+	sw t0, 8(sp)
+	j heap_sort_wentry_1
+heap_sort_wend_1:
+	li a0, 0
+	li   t0, 156
+	add  t0, sp, t0
+	lw ra, 0(t0)
+	li t0, 160
+	add sp, sp, t0
+	ret
+	.globl main
+main:
+main_entry:
+	li   t0, -208
+	add  sp, sp, t0
+	li   t0, 204
+	add  t0, sp, t0
+	sw ra, 0(t0)
+	li t0, 10
+	la t1, n_0
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 0
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 40(sp)
+	li t0, 0
+	lw t1, 40(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 1
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 44(sp)
+	li t0, 0
+	lw t1, 44(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 2
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 48(sp)
+	li t0, 0
+	lw t1, 48(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 3
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 52(sp)
+	li t0, 0
+	lw t1, 52(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 4
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 56(sp)
+	li t0, 0
+	lw t1, 56(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 5
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 60(sp)
+	li t0, 0
+	lw t1, 60(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 6
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 64(sp)
+	li t0, 0
+	lw t1, 64(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 7
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 68(sp)
+	li t0, 0
+	lw t1, 68(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 8
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 72(sp)
+	li t0, 0
+	lw t1, 72(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 9
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 76(sp)
+	li t0, 0
+	lw t1, 76(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 0
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 80(sp)
+	li t0, 4
+	lw t1, 80(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 1
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 84(sp)
+	li t0, 3
+	lw t1, 84(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 2
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 88(sp)
+	li t0, 9
+	lw t1, 88(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 3
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 92(sp)
+	li t0, 2
+	lw t1, 92(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 4
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 96(sp)
+	li t0, 0
+	lw t1, 96(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 5
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 100(sp)
+	li t0, 1
+	lw t1, 100(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 6
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 104(sp)
+	li t0, 6
+	lw t1, 104(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 7
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 108(sp)
+	li t0, 5
+	lw t1, 108(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 8
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 112(sp)
+	li t0, 7
+	lw t1, 112(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 9
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 116(sp)
+	li t0, 8
+	lw t1, 116(sp)
+	sw t0, 0(t1)
+	li t0, 0
+	sw t0, 120(sp)
+	li t0, 0
+	add t0, sp, t0
+	li t1, 0
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 124(sp)
+	la t1, n_0
+	lw t1, 0(t1)
+	sw t1, 128(sp)
+	lw t0, 124(sp)
+	mv a0, t0
+	lw t0, 128(sp)
+	mv a1, t0
+	call heap_sort
+	sw a0, 132(sp)
+	lw t0, 132(sp)
+	sw t0, 120(sp)
+	j main_wentry_0
+main_wentry_0:
+	lw t1, 120(sp)
+	sw t1, 136(sp)
+	la t1, n_0
+	lw t1, 0(t1)
+	sw t1, 140(sp)
+	lw t0, 136(sp)
+	lw t1, 140(sp)
+	slt t2, t0, t1
+	sw t2, 144(sp)
+	lw t0, 144(sp)
+	bnez t0, main_wbody_0
+	beqz t0, main_wend_0
+main_wbody_0:
+	lw t1, 120(sp)
+	sw t1, 152(sp)
+	li t0, 0
+	add t0, sp, t0
+	lw t1, 152(sp)
+	li t2, 4
+	mul t2, t1, t2
+	add t1, t0, t2
+	sw t1, 156(sp)
+	lw t1, 156(sp)
+	lw t1, 0(t1)
+	sw t1, 160(sp)
+	lw t0, 160(sp)
+	sw t0, 148(sp)
+	lw t1, 148(sp)
+	sw t1, 164(sp)
+	lw t0, 164(sp)
+	mv a0, t0
+	call putint
+	li t0, 10
+	sw t0, 148(sp)
+	lw t1, 148(sp)
+	sw t1, 168(sp)
+	lw t0, 168(sp)
+	mv a0, t0
+	call putch
+	lw t1, 120(sp)
+	sw t1, 172(sp)
+	lw t0, 172(sp)
+	li t1, 1
+	add t2, t0, t1
+	sw t2, 176(sp)
+	lw t0, 176(sp)
+	sw t0, 120(sp)
+	j main_wentry_0
+main_wend_0:
+	li a0, 0
+	li   t0, 204
+	add  t0, sp, t0
+	lw ra, 0(t0)
+	li t0, 208
+	add sp, sp, t0
+	ret
